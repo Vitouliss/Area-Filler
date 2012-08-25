@@ -7,10 +7,10 @@ Currently it is very buggy and very dumb and very stupid....
 Vitouliss 8-19-12
 
 --]]
-function fill(height,width)
+function fill(height,width,dur)
 	turtle.up()
-	for dur = 1,height do
-		for a = 1,width do
+	for duration = 1,dur do
+		for a = 1,width+8 do
 			if turtle.detect() then
 				turtle.turnRight()
 				turtle.placeDown()
@@ -22,7 +22,7 @@ function fill(height,width)
 			turtle.placeDown()
 		end
 	end
-
+	print("Jumping to height!")
 		for b = 1,height/height do
 			local timer = 0
 			if timer == height then
@@ -32,10 +32,21 @@ function fill(height,width)
 			turtle.up()
 			turtle.placeDown()
 			timer = timer+1
+		else
+			print("Doing the normal jump")
+			turtle.up()
+			turtle.forward()
+			turtle.placeDown()
+			timer = timer+1
 		end
 	end
 end
 end
+
+print("How many times to do it?")
+ohno = read()
+local yep = tonumber(ohno)
+local dur = yep
 
 print("Width?")
 thingy = read()
@@ -46,4 +57,4 @@ print("Height?")
 thingy2 = read()
 local realth2 = tonumber(thingy2)
 local times2 = realth2
-fill(times2,times)
+fill(times2,times,dur)
